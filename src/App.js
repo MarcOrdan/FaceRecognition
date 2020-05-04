@@ -58,7 +58,6 @@ class App extends Component {
 
 
   displayFacebox = (box) => {
-    console.log(box);
     this.setState({box: box})
   }
 
@@ -97,18 +96,18 @@ class App extends Component {
       />
       <Navigation isSignedin = {isSignedin} onRouteChange = {this.onRouteChange} />
       
-      { this.state.route === 'home' 
+      { route === 'home' 
       ? <div> 
-        <Logo /> 
-        <Rank />
-        <ImageLinkForm 
-        onInputChange = {this.onInputChange} 
-        onButtonSubmit = {this.onButtonSubmit} 
-      />
-      <FaceRecognition box ={box} imageUrl={imageUrl} /> 
-      </div>  
+            <Logo /> 
+            <Rank />
+            <ImageLinkForm 
+              onInputChange = {this.onInputChange} 
+              onButtonSubmit = {this.onButtonSubmit}
+            />
+            <FaceRecognition box ={box} imageUrl={imageUrl} /> 
+        </div>  
       : (
-          route === 'signin' 
+          route === 'signin' || route === 'signout'
           ? <Signin onRouteChange = {this.onRouteChange}/> 
           : <Register onRouteChange = {this.onRouteChange}/> 
         )
